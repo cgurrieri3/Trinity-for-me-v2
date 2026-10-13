@@ -1,0 +1,33 @@
+
+How to remake the execuatble 
+>s_cgroup 
+>make
+
+
+How to run 
+>s_cgroup 
+> ./MakeCamera /DataAnalysis/MakeThingsPretty/Images.txt /cedar/
+
+images are created in ../Images
+
+
+Next meeting checklist
+
+1. Rebuild in the ROOT environment:
+>s_cgroup
+>make clean
+>make
+
+2. Make an image-list file with one row per requested plot:
+Output,Title,Histogram,File,Zaxis
+
+For LMCE simulations, add 16 rows like:
+LMCE01,LMCE_Simulation_01,<histogram name>,<full path to ROOT file>,PE
+
+The existing triggered-event example is:
+Triggered20PE,Single_triggered_pixel_above_20_PE,PreN20250424-F04:21-E0TH2F,/storage/hive/project/phy-otte/sstepanoff3/event_cleaning/OutputRank8test/EventCleanedCluster20250424_TC_481_TB_239_NP_481_s_256_FA_800_mp_1_er_100_tr_1.root,PE
+
+3. Run the plotter:
+> ./MakeCamera /DataAnalysis/MakeThingsPretty/<your image-list file>.txt /cedar/
+
+The plotter flips every histogram in both camera axes, so sky is on top and the left/right orientation is mirrored too. It puts Ground below Sky and does not draw a compass key.

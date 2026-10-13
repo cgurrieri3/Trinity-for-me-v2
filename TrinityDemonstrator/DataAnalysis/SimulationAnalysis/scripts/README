@@ -1,0 +1,146 @@
+This script takes the simulation data and then convert them to mimic real data to run through the eventcleaning
+
+to just run the script locally on a single file 
+./run_script.sh <YYYYMMDD> <SIMRUN> [GROPT|CARE] [runFolder]
+./run_script.sh 20260901 tausofia CARE
+./run_script.sh 20260803 muonkiet CARE
+./run_script.sh 20260413 16190401_daro GROPT
+./run_script.sh 20260916 nathanwmycare CARE job_000004   <- one run folder only
+
+./run_all this will run all on the local node (slow)
+
+<YYYYMMDD>_<SIMRUN> names a folder under simdata/<daviddata|sofiadata>/ and two
+layouts are handled automatically:
+
+  flat      <YYYYMMDD>_<SIMRUN>/<stage>/Tilt_*/*.root
+  campaign  <YYYYMMDD>_<SIMRUN>/<YYYYMMDD_RUN_xx>/<stage>/Tilt_*/*.root
+
+The newer sofia productions are the campaign form, e.g.
+simdata/sofiadata/20260901_tausofia/20260901_10455802_ss/CARE/Tilt_90.000000/,
+so one call walks every run folder underneath the campaign and writes them all
+into a single set of outputs named after the campaign. Run folders that are
+still producing, or that have no ISOG file yet, are reported and skipped, so the
+finished part of a night can be analysed while the rest is running. The tilt
+folder is matched on its "Tilt_" prefix, so the tilt angle does not have to be
+known in advance.
+
+ISOG columns
+------------
+The shower information is matched to the events by row number: ISOG row N
+describes tree entry N (checked to hold on all 58 run folders of 20260916 -
+715 rows against 715 entries, and so on). SimRootFiles now verifies both halves
+of that before reading a run: the column names in the ISOG header have to be the
+ones it assigns to the SEvent, and the row count has to equal the tree entry
+count. A run that fails either check is skipped rather than written out with
+shower parameters sitting on the wrong events.
+
+The 22 stored columns are, in order:
+  PolarAngle AzimuthAngle XTel YTel ZTel TelescopeRadius XMax NMax X0 Lambda
+  NeutrinoEnergy DecayLength ShowerStartX ShowerStartY ShowerStartZ
+  TauEmergenceProb EmergencePointX EmergencePointY EmergencePointZ
+  GlobeTheta GlobePhi TauEnergy
+ISOG also writes PExit, LastSurfaceCode, RunCHASMFlag and MasterSeed after
+those; SEvent has no field for them, and MasterSeed is a 128 bit integer that
+would not fit a Float_t anyway.
+
+ISOG writes "nan" for a column that does not apply to a shower - ShowerStartX/Y/Z
+on anything that never decayed. Reading the row with "iss >> Float_t" stopped
+dead on that token and left every later column unset, which is why tau energy
+came back missing on 20260916: the first nan is column 12, so only 12 of the 26
+columns were ever read. The row is now converted one token at a time, so a nan
+stays in its own column.
+
+Each event records the run folder it came from in the Sim tree (SimRun), and
+the histogram/canvas keys in plots_*.root are named
+h_<date>_<run folder>_<event> so they stay unique across the campaign.
+
+the 4th argument of SimRootFiles picks which simulation stage to read.
+GROPT (the default) reads the ray traced photons out of T1 and makes the
+1mm / 6mm camera views. CARE reads the FADC traces out of Events/T0 and
+makes the 16x16 PE camera view from the sample at timebin 25. Both read the
+same ISOG row for a shower, so the event label, the Sim tree and the Test
+tree carry the same information either way. Each stage
+writes into its own folder, data/<date>/<GROPT|CARE>/, so the two do not
+overwrite each other.
+
+to recompile 
+./compile_script.sh
+
+-------------------------------------------------
+CONDOR - one job per run folder
+
+A campaign is far too much for one node: 20260916_nathanwmycare is 58 run
+folders and about 42000 showers between them. Each run folder is self contained
+though - its own GROPT/CARE files and its own ISOG file describing the same
+showers - so they parallelise with no merging of shower information needed.
+
+    ./submit_sim.sh <YYYYMMDD> <SIMRUN> [GROPT|CARE]
+    ./submit_sim.sh 20260916 nathanwmycare CARE
+
+submit_sim.sh walks the campaign, writes the run folders that actually have both
+a stage folder with .root files and an ISOG .txt to
+condor_lists/run_folders_<date>_<simrun>_<simtype>.txt, and submits one job per
+line. Folders still being produced are reported and left out rather than queued
+for a job that would only skip them on the node. Run with DRYRUN=1 to write the
+list and print the submit command without submitting.
+
+    plotcamera.submit    one job per run folder, queued from that list
+    run_condor_sim.sh    runs inside the job: rebuilds the directory tree that
+                         SimRootFiles expects out of the flat transferred
+                         inputs, then runs it for that one run folder
+
+Only that run folder's stage and ISOG directories are transferred, not the whole
+campaign. Note a CARE folder carries its .vbf along with the .root, about 30 MB
+per job.
+
+Every output file is named with the run folder in it,
+datafiles_<date>_<simrun>_<runFolder>.root, so the jobs all write into the
+shared data/<date>/<simtype>/ without overwriting each other. To get back the
+single tree a local pass produces:
+
+    ./merge_sim_output.sh <YYYYMMDD> <SIMRUN> [GROPT|CARE]
+
+which hadds them into datafiles_<date>_<simrun>.root and leaves the per run
+folder files in place.
+
+To reproduce one failed job by hand, give run_script.sh the same run folder the
+job got:  ./run_script.sh 20260916 nathanwmycare CARE job_000004
+
+ISOG columns are dumped per shower when ISOGVERBOSE=1 is set; it is off by
+default because 22 lines an event would bury the condor log.
+
+-------------------------------------------------
+CONDOR - the older flat layout (still here, unchanged)
+create the file that has all sim files to run over 
+./get_folders_tocsv.sh 
+then 
+condor_submit convertsim2data.submit
+    uses ./run_condor.sh for inside the job
+NOTE: this path assumes the old flat GROPT/Tilt_91.560000 layout (see
+run_condor.sh and the transfer_input_files line in the submit file); use
+submit_sim.sh above for campaign folders.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------
+HIVE how to run
+how to run
+
+./SimRootFiles YYYYMMDD SIMRUN MOUNT [GROPT|CARE] [runFolder]
+samples
+./SimRootFiles 20250529 Tilt_91.560000 y
+./SimRootFiles 20250529 Tilt_91.560000 y CARE
+./SimRootFiles 20260901 tausofia y CARE
+./SimRootFiles 20260916 nathanwmycare y CARE job_000004

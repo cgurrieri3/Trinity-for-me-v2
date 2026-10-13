@@ -1,1 +1,2 @@
-# Trinity-for-me-v2
+# Trinity
+All the software for Trinity

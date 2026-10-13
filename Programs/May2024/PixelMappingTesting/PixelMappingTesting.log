@@ -1,0 +1,158 @@
+2024-05-08 19:56:21,573 - INFO - Trimmed Log file
+2024-05-08 19:56:23,736 - INFO - ------- Starting Hardware Pixel Mapping Testing ------
+2024-05-08 19:56:23,737 - INFO - Turning on SIABs
+2024-05-08 19:56:23,737 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 19:57:22,261 - INFO - Trimmed Log file
+2024-05-08 19:57:23,612 - INFO - Powering on Camera
+2024-05-08 19:57:23,612 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 19:57:27,611 - INFO - SingleFocus Command
+2024-05-08 19:57:27,611 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 19:57:29,414 - INFO - LVPS to 44V
+2024-05-08 19:57:29,415 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 19:57:30,607 - INFO - ------- Starting Hardware Pixel Mapping Testing ------
+2024-05-08 19:57:30,607 - INFO - Turning on SIABs
+2024-05-08 19:57:30,607 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 19:58:11,777 - INFO - Trimmed Log file
+2024-05-08 19:58:13,326 - INFO - ------- Starting Hardware Pixel Mapping Testing ------
+2024-05-08 19:58:13,327 - INFO - Turning on SIABs
+2024-05-08 19:58:13,327 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 19:58:18,993 - INFO - power Off SIABs
+2024-05-08 19:58:23,998 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-08 19:59:31,085 - INFO - Trimmed Log file
+2024-05-08 19:59:32,427 - INFO - ------- Starting Hardware Pixel Mapping Testing ------
+2024-05-08 19:59:32,428 - INFO - Turning on SIABs
+2024-05-08 19:59:32,428 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 19:59:38,801 - INFO - power Off SIABs
+2024-05-08 19:59:43,806 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-08 19:59:47,261 - INFO - Invalid key. Press "c" to continue...
+2024-05-08 19:59:48,619 - INFO - Invalid key. Press "c" to continue...
+2024-05-08 19:59:49,176 - INFO - Invalid key. Press "c" to continue...
+2024-05-08 19:59:49,660 - INFO - Invalid key. Press "c" to continue...
+2024-05-08 19:59:50,234 - INFO - Invalid key. Press "c" to continue...
+2024-05-08 19:59:51,428 - INFO - 
+AGET Testing terminated by user.
+2024-05-08 19:59:53,963 - INFO - Trimmed Log file
+2024-05-08 19:59:55,612 - INFO - ------- Starting Hardware Pixel Mapping Testing ------
+2024-05-08 19:59:55,612 - INFO - Turning on SIABs
+2024-05-08 19:59:55,612 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 20:00:00,033 - INFO - power Off SIABs
+2024-05-08 20:00:05,039 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-08 20:00:11,483 - INFO - power Off SIABs
+2024-05-08 20:00:16,488 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-08 20:00:20,884 - INFO - power Off SIABs
+2024-05-08 20:00:25,889 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-08 20:00:40,722 - INFO - power Off SIABs
+2024-05-08 20:00:45,727 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-08 20:00:49,474 - INFO - 
+AGET Testing terminated by user.
+2024-05-08 20:01:46,001 - INFO - Trimmed Log file
+2024-05-08 20:01:48,947 - INFO - Powering on Camera
+2024-05-08 20:01:48,947 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 20:01:50,379 - INFO - SingleFocus Command
+2024-05-08 20:01:50,379 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 20:01:51,284 - INFO - LVPS to 44V
+2024-05-08 20:01:51,284 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 20:01:53,564 - INFO - ------- Starting Hardware Pixel Mapping Testing ------
+2024-05-08 20:01:53,564 - INFO - Turning on SIABs
+2024-05-08 20:01:53,564 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 20:02:03,668 - INFO - power Off SIABs
+2024-05-08 20:02:08,674 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-08 20:02:18,135 - INFO - power Off SIABs
+2024-05-08 20:02:23,140 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-08 20:02:56,737 - INFO - 
+AGET Testing terminated by user.
+2024-05-08 20:03:04,036 - INFO - Trimmed Log file
+2024-05-08 20:03:05,851 - INFO - Powering on Camera
+2024-05-08 20:03:05,851 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 20:03:06,887 - INFO - SingleFocus Command
+2024-05-08 20:03:06,888 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 20:03:07,600 - INFO - LVPS to 44V
+2024-05-08 20:03:07,601 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 20:03:09,285 - INFO - ------- Starting Hardware Pixel Mapping Testing ------
+2024-05-08 20:03:09,285 - INFO - Turning on SIABs
+2024-05-08 20:03:09,285 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 20:03:14,465 - INFO - power Off SIABs
+2024-05-08 20:03:19,470 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-08 20:03:21,930 - INFO - Turning on SIABs
+2024-05-08 20:03:21,930 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 20:03:26,860 - INFO - power Off SIABs
+2024-05-08 20:03:31,865 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-08 20:03:34,278 - INFO - Turning on SIABs
+2024-05-08 20:03:34,278 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 20:03:40,249 - INFO - power Off SIABs
+2024-05-08 20:03:45,254 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-08 20:03:46,942 - INFO - Turning on SIABs
+2024-05-08 20:03:46,942 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 20:03:50,362 - INFO - power Off SIABs
+2024-05-08 20:03:55,368 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-08 20:03:56,774 - INFO - Invalid key. Press "c" to continue...
+2024-05-08 20:03:58,445 - INFO - Turning on SIABs
+2024-05-08 20:03:58,445 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 20:04:02,867 - INFO - power Off SIABs
+2024-05-08 20:04:07,869 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-08 20:04:10,528 - INFO - 
+AGET Testing terminated by user.
+2024-05-08 20:07:27,170 - INFO - Trimmed Log file
+2024-05-08 20:07:28,427 - INFO - ------- Starting Hardware Pixel Mapping Testing ------
+2024-05-08 20:07:28,428 - INFO - Turning on SIABs
+2024-05-08 20:07:28,428 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 20:07:39,301 - INFO - Trimmed Log file
+2024-05-08 20:07:41,177 - INFO - ------- Starting Hardware Pixel Mapping Testing ------
+2024-05-08 20:07:41,177 - INFO - Turning on SIABs
+2024-05-08 20:07:41,178 - INFO - Check Graphana to ensure camera is operating.
+2024-05-08 20:07:50,419 - INFO - power Off SIABs
+2024-05-08 20:07:55,425 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-08 20:07:57,637 - INFO - 
+Hardware Pixel Mapping Testing terminated by user. 
+ Make sure to shut the camera off
+
+2024-05-09 15:27:01,979 - INFO - Trimmed Log file
+2024-05-09 15:27:04,925 - INFO - Powering on Camera
+2024-05-09 15:27:04,925 - INFO - Check Graphana to ensure camera is operating.
+2024-05-09 15:27:11,949 - INFO - SingleFocus Command
+2024-05-09 15:27:11,949 - INFO - Check Graphana to ensure camera is operating.
+2024-05-09 15:27:31,632 - INFO - LVPS to 44V
+2024-05-09 15:27:31,633 - INFO - Check Graphana to ensure camera is operating.
+2024-05-09 15:27:32,614 - INFO - ------- Starting Hardware Pixel Mapping Testing ------
+2024-05-09 15:27:32,614 - INFO - Turning on SIABs
+2024-05-09 15:27:32,614 - INFO - Check Graphana to ensure camera is operating.
+2024-05-09 15:27:37,849 - INFO - power Off SIABs
+2024-05-09 15:27:42,855 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-09 15:27:44,911 - INFO - Turning on SIABs
+2024-05-09 15:27:44,912 - INFO - Check Graphana to ensure camera is operating.
+2024-05-09 15:27:48,149 - INFO - power Off SIABs
+2024-05-09 15:27:53,155 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-09 15:27:54,072 - INFO - Turning on SIABs
+2024-05-09 15:27:54,073 - INFO - Check Graphana to ensure camera is operating.
+2024-05-09 15:27:59,688 - INFO - power Off SIABs
+2024-05-09 15:28:04,691 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-09 15:28:06,475 - INFO - Turning on SIABs
+2024-05-09 15:28:06,475 - INFO - Check Graphana to ensure camera is operating.
+2024-05-09 15:28:10,251 - INFO - power Off SIABs
+2024-05-09 15:28:15,256 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-09 15:28:16,709 - INFO - Invalid key. Press "c" to continue...
+2024-05-09 15:28:18,644 - INFO - Turning on SIABs
+2024-05-09 15:28:18,644 - INFO - Check Graphana to ensure camera is operating.
+2024-05-09 15:28:21,580 - INFO - power Off SIABs
+2024-05-09 15:28:26,586 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-09 15:28:30,935 - INFO - 
+Hardware Pixel Mapping Testing terminated by user. 
+ Make sure to shut the camera off
+
+2024-05-09 16:24:00,589 - INFO - Trimmed Log file
+2024-05-09 16:24:02,618 - INFO - Check Graphana to ensure camera is operating.
+2024-05-09 16:24:04,632 - INFO - Check Graphana to ensure camera is operating.
+2024-05-09 16:24:05,457 - INFO - Check Graphana to ensure camera is operating.
+2024-05-09 16:24:06,224 - INFO - ------- Starting Hardware Pixel Mapping Testing ------
+2024-05-09 16:24:06,225 - INFO - Check Graphana to ensure camera is operating.
+2024-05-09 16:24:13,932 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-09 16:24:15,613 - INFO - Check Graphana to ensure camera is operating.
+2024-05-09 16:24:28,067 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-09 16:24:36,744 - INFO - Check Graphana to ensure camera is operating.
+2024-05-09 16:24:42,900 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-09 16:24:59,993 - INFO - Check Graphana to ensure camera is operating.
+2024-05-09 16:25:05,596 - INFO - Hit "c" to continue or "q" to quit: ...
+2024-05-09 16:25:08,865 - INFO - 
+Hardware Pixel Mapping Testing terminated by user. 
+ Make sure to shut the camera off
+

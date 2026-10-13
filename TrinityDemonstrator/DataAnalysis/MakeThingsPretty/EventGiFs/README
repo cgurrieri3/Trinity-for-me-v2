@@ -1,0 +1,43 @@
+Makes an animated gif of one event: one camera image per time bin, played at 24 fps.
+The file decides what it is: a file with a "Sim" tree is a simulation, anything else is demonstrator data.
+The formatting is the same as CreateCameraImageFromHist (sky on top, SIAB boxes, Sky/Ground line),
+with the file name on top and the event and time bin above the camera, changing with each frame.
+- data: flipped in both camera axes like the stills, so the sky is on top. The Sky/Ground line goes by
+        the night's row ratio (y=11.5 before Oct. 2025, y=8.5 from then on).
+- sims: NOT flipped, they are written sky-up already. The Sky/Ground line is the horizon for the tilt
+        (SEvent tilt, or the Tilt_ folder in the path): y = 7.5 - (90 - tilt)/0.242, so Tilt_90 puts it
+        on the camera centre. It is the same geometry EventCleaning's DrawSimHorizon uses.
+
+How to remake the executable
+>./compile_script.sh
+(or ./compile_script.sh clean first)
+
+How to run
+>./run_script.sh /DataAnalysis/MakeThingsPretty/EventGiFs/EventGifs.txt
+
+or from inside s_cgroup
+> ./MakeEventGif /DataAnalysis/MakeThingsPretty/EventGiFs/EventGifs.txt /cedar/
+
+gifs are created in ./Gifs as <Output>_E<event>.gif
+
+
+Gif list file, one row per request, no spaces:
+Output,File,Event,FirstTimeBin,LastTimeBin
+
+- Output: name for the gif, the event number is added to it
+- File:   full path, either a merged data file or a sim _tdem.root file
+    data: /cedar/DataAnalysis/MergedData/Output/<night>/Merged_....root
+    sims: /cedar/simdata/sofiadata/20260827_taudavid/<run>/CARE/Tilt_90.000000/<shower>_tdem.root
+- Event:  Test tree entry number, or "all" for every triggered event in the file
+          (for sims "all" skips the thrown showers that never triggered, their traces are flat)
+- FirstTimeBin,LastTimeBin: optional, leave them off to use the defaults
+    data: 225-255 (the pulse sits around bin 239)
+    sims: 156-200 (the CARE trace starts at bin 156 of the 512-sample trace, pulses sit around 176-200)
+
+Calibration
+- data: the night's flasher calibration from flasher_calibration/Output (CamFlasher44, or CamFlasher on 2025 nights)
+        and the SiPM gain of each pixel, pedestal = mean of samples 0-99. Same as EventCleaning.
+        Most June 2026 flasher files are all NaN, those pixels come out as 0 PE with a WARNING.
+- sims: 24.1 ADC per PE, pedestal = mean of samples 157-166. Same as EventCleaning.
+
+PrintFrameDiagnostics in PlotEventGif.h prints the brightest pixel and camera sum for every frame.

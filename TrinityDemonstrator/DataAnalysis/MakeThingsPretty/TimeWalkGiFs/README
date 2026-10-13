@@ -1,0 +1,54 @@
+Makes an animated gif of the TimeWalkCleaning time walk on one event: the 8 PE seed stage (panel 2),
+then the 4 PE extension stage (panel 3).
+The camera is the same 2D histogram as the cleaning's panels and shows every pixel's PE at the time bin
+of the frame. Each step of the walk is one pixel (the parent) searching its neighbours for signal in
+its own time bin +/- 2. The gif steps through that window one time bin per frame, then a result frame
+shows which neighbours joined. The last frame is the finished cluster at the triggered pixel's peak
+bin, where the cleaning reads its images.
+
+The walk is rerun here, not read back from the cleaning's output, so the settings at the top of
+PlotTimeWalkGif.h are copied from event_cleaning/TimeWalkCleaning/EventCleaning.h. If one changes
+there, change it here too.
+
+How to remake the executable
+>./compile_script.sh
+(or ./compile_script.sh clean first; the Makefile does not track the header, so after editing
+PlotTimeWalkGif.h run rm PlotTimeWalkGif.o first)
+
+How to run
+>./run_script.sh /DataAnalysis/MakeThingsPretty/TimeWalkGiFs/TimeWalkGifs.txt
+
+RISE_FRACTION=<percent> and TIME_WINDOW=<n> work the same way as for the cleaning's run_script.sh:
+>RISE_FRACTION=30 TIME_WINDOW=3 ./run_script.sh /DataAnalysis/MakeThingsPretty/TimeWalkGiFs/TimeWalkGifs.txt
+
+gifs are created in ./Gifs as <Output>_E<event>_tw_<n>_rf_<percent>.gif
+
+
+Gif list file, one row per event, no spaces:
+Output,File,Event
+
+- Output: name for the gif, the event number and settings are added to it
+- File:   full path, either a merged data file or a sim _tdem.root file
+    data: /cedar/DataAnalysis/MergedData/Output/<night>/Merged_....root
+    sims: /cedar/simdata/sofiadata/20260827_taudavid/<run>/CARE/Tilt_90.000000/<shower>_tdem.root
+- Event:  Test tree entry number (the E# of the cleaning PDF for data)
+
+
+What the outlines mean
+- white:   in the cluster from the 8 PE stage (T = triggered pixel, where the walk starts)
+- magenta: in the cluster from the 4 PE stage
+- orange:  the pixel searching its neighbours
+- cyan:    a neighbour being searched, the number is its PE in the bin shown
+- green:   a neighbour at or above the threshold in the bin shown (it joins)
+- grey dashed (result frames): a neighbour that never reached the threshold in the window
+On result frames the numbers are each neighbour's brightest PE anywhere in the window.
+
+Settings in PlotTimeWalkGif.h
+- ShowEveryWindowBin = false keeps only the result frames, for a shorter gif of a big event
+- the frame delays (IntroFrameDelay, SweepFrameDelay, ...) are in centiseconds
+- PrintWalkDiagnostics prints every admitted/rejected neighbour in the cleaning's own format
+
+Calibration is the same as the cleaning (flasher x SiPM gain for data, 24.1 ADC per PE for sims).
+2025 nights whose flasher file only has a CamFlasher histogram (e.g. 20250125) still make a gif, with
+a WARNING: the cleaning itself stops on those nights (ExACT asks for CamFlasher44), so there is no
+cleaning output to compare that walk with.

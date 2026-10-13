@@ -1,0 +1,97 @@
+Computer Rebooted Mon Nov 13 19:54:37 2023
+Door Shut Mon Nov 13 19:54:52 2023
+Computer Rebooted Mon Nov 13 19:57:31 2023
+Door Shut Mon Nov 13 19:57:31 2023
+Computer Rebooted Sat Nov 18 23:29:00 2023
+Door Shut Sat Nov 18 23:29:00 2023
+Computer Rebooted Mon Nov 20 15:03:20 2023
+Door Shut Mon Nov 20 15:03:20 2023
+Computer Rebooted Mon Nov 20 15:13:28 2023
+Door Shut Mon Nov 20 15:13:28 2023
+Computer Rebooted Mon Nov 20 15:18:31 2023
+Door Shut Mon Nov 20 15:18:31 2023
+Computer Rebooted Mon Nov 27 21:02:21 2023
+Door Shut Mon Nov 27 21:02:36 2023
+Computer Rebooted Mon Nov 27 21:15:41 2023
+shut_door Successful Mon Nov 27 21:15:57 2023
+Computer Rebooted Wed Dec 20 16:48:29 2023
+shut_door FAILURE Wed Dec 20 16:48:29 2023
+Computer Rebooted Tue Jan  2 23:36:01 2024
+shut_door FAILURE Tue Jan  2 23:36:01 2024
+Computer Rebooted Thu Jan  4 23:57:25 2024
+shut_door FAILURE Thu Jan  4 23:57:25 2024
+Computer Rebooted Fri Jan  5 04:05:48 2024
+shut_door FAILURE Fri Jan  5 04:05:48 2024
+Computer Rebooted Tue Jan 23 07:26:57 2024
+shut_door FAILURE Tue Jan 23 07:26:57 2024
+Computer Rebooted Mon Jan 29 02:21:50 2024
+shut_door FAILURE Mon Jan 29 02:21:50 2024
+Computer Rebooted Thu Feb  8 07:27:14 2024
+shut_door FAILURE Thu Feb  8 07:27:14 2024
+Computer Rebooted Mon Feb 12 18:02:09 2024
+shut_door Successful Mon Feb 12 18:02:24 2024
+Computer Rebooted Mon Feb 12 18:03:21 2024
+shut_door Successful Mon Feb 12 18:03:37 2024
+Computer Rebooted Mon Feb 12 18:05:05 2024
+shut_door FAILURE spawn uswitch -dir down
+Mon Feb 12 18:05:05 2024
+Computer Rebooted Mon Feb 12 18:24:26 2024
+shut_door Successful Mon Feb 12 18:24:41 2024
+Computer Rebooted Mon Feb 12 19:13:32 2024
+shut_door FAILURE spawn uswitch -dir down
+Mon Feb 12 19:13:32 2024
+Computer Rebooted Tue Feb 13 17:02:22 2024
+shut_door FAILURE spawn uswitch -dir down
+Resetting PUSH relay...
+RELAY1=0
+Traceback (most recent call last):
+  File "/root/bin/uswitch", line 73, in <module>
+    DoorControl(args)
+  File "/root/bin/uswitch", line 26, in __init__
+    self.Down()
+  File "/root/bin/uswitch", line 39, in Down
+    self.ResetPUSH()
+  File "/root/bin/uswitch", line 47, in ResetPUSH
+    self.OpenSocket('RELAY1=0')
+  File "/root/bin/uswitch", line 56, in OpenSocket
+    s.connect((self.TCP_IP,self.TCP_PORT))
+OSError: [Errno 113] No route to host
+Tue Feb 13 17:02:26 2024
+Computer Rebooted Tue Feb 13 17:13:57 2024
+shut_door FAILURE spawn uswitch -dir down
+Resetting PUSH relay...
+RELAY1=0
+Traceback (most recent call last):
+  File "/root/bin/uswitch", line 73, in <module>
+    DoorControl(args)
+  File "/root/bin/uswitch", line 26, in __init__
+    self.Down()
+  File "/root/bin/uswitch", line 39, in Down
+    self.ResetPUSH()
+  File "/root/bin/uswitch", line 47, in ResetPUSH
+    self.OpenSocket('RELAY1=0')
+  File "/root/bin/uswitch", line 56, in OpenSocket
+    s.connect((self.TCP_IP,self.TCP_PORT))
+OSError: [Errno 113] No route to host
+Tue Feb 13 17:14:00 2024
+Computer Rebooted Fri Feb 16 19:53:27 2024
+shut_door FAILURE spawn uswitch -dir down
+Fri Feb 16 19:53:27 2024
+Error running Expect script
+Error Output:
+ spawn uswitch -dir down
+
+Computer Rebooted Fri Feb 23 21:09:37 2024
+shut_door FAILURE spawn uswitch -dir down
+Fri Feb 23 21:09:37 2024
+Error running Expect script
+Error Output:
+ spawn uswitch -dir down
+
+Computer Rebooted Thu Feb 29 17:01:08 2024
+shut_door FAILURE spawn uswitch -dir down
+Thu Feb 29 17:01:08 2024
+Error running Expect script
+Error Output:
+ spawn uswitch -dir down
+

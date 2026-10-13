@@ -1,0 +1,8 @@
+Error running Expect script
+Error Output:
+ spawn uswitch -dir down
+
+Error running Expect script
+Error Output:
+ spawn obs_pwr_off
+

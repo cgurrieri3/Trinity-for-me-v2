@@ -1,0 +1,61 @@
+sysFilePath = /projects/cos-lab-aotte6/cos-4a17118/Trinity/TrinityDemonstrator
+folderPath = DataAnalysis/SimulationAnalysis
+container_image = $(sysFilePath)/DataAnalysis/containers/rootandexact.sif
+
+# Ensure host paths are visible inside the container
+#+ApptainerBind = "/storage,/tmp,/dev,/proc,/exact"
+
+executable = $(sysFilePath)/$(folderPath)/scripts/run_condor_sim.sh
+# one job per run folder of the campaign
+
+arguments = $(Date) $(SimRun) $(SimType) $(RunFolder)
+getenv = True
+
+# Transferred output lands in this directory. run_condor_sim.sh produces a
+# directory named after the night, so the results end up in
+# data/<Date>/<SimType>/ - exactly where a local run_script.sh pass puts them.
+initialdir = $(sysFilePath)/$(folderPath)/data
+
+log = $(sysFilePath)/$(folderPath)/.logs/$ENV(USER)/HT_condor_$ENV(USER)_$(Date)_$(SimRun)_$(SimType)_$(RunFolder).log
+# HTCondor log
+
+error = $(sysFilePath)/$(folderPath)/.logs/$ENV(USER)/Program_$ENV(USER)_$(Date)_$(SimRun)_$(SimType)_$(RunFolder).err
+#Standard Error - program and HTCondor errors
+
+output = $(sysFilePath)/$(folderPath)/.logs/$ENV(USER)/Program_$ENV(USER)_$(Date)_$(SimRun)_$(SimType)_$(RunFolder).out
+# program terminal output (not output files)
+
+# Only this one run folder's stage files and its ISOG file go to the node, not
+# the whole campaign. The two directories are transferred whole so any tilt name
+# and any number of .root files inside them keep working.
+transfer_input_files = $(sysFilePath)/simdata/sofiadata/$(Date)_$(SimRun)/$(RunFolder)/$(SimType),\
+$(sysFilePath)/simdata/sofiadata/$(Date)_$(SimRun)/$(RunFolder)/ISOG,\
+$(sysFilePath)/$(folderPath)/scripts/SimRootFiles,\
+$(sysFilePath)/$(folderPath)/scripts/run_condor_sim.sh
+#any file that needs to included for the job - everything minus executable
+
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT_OR_EVICT
+transfer_output_files = DataAnalysis/SimulationAnalysis/data/$(Date)
+
+# these are PER JOB
+request_cpus = 1
+
+request_memory = 2 GB
+# a CARE run folder holds 256 FADC traces per event; 2 GB covers the trace
+# overlay histograms plus the event displays
+
+# space for all files input and output and intermediate files
+# a CARE folder is ~30 MB per run folder (the .vbf travels with it), the PDFs
+# and the datafiles root come to a few hundred MB for a 700 shower folder
+request_disk = 4 GB
+
+max_retries = 3
+
+JobBatchName = "PC_$(Date)_$(SimRun)_$(SimType)"
+
+###----------#####
+# Queue! HAS TO BE THE LAST LINE
+###----------#####
+# one job per run folder, the list is written by submit_sim.sh
+queue RunFolder from $(sysFilePath)/$(folderPath)/condor_lists/run_folders_$(Date)_$(SimRun)_$(SimType).txt

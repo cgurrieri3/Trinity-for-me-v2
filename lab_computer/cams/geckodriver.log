@@ -1,0 +1,27 @@
+1704930029268	geckodriver	INFO	Listening on 127.0.0.1:39221
+1704930032495	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/snap/firefox/current/firefox.launcher" "--marionette" "--headless" "-no-remote" "-profile" "/tmp/rust_mozprofile7jvX0M"
+*** You are running in headless mode.
+Gtk-Message: 18:40:32.610: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try to not load it.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+1704930037122	Marionette	INFO	Marionette enabled
+1704930037562	Marionette	INFO	Listening on port 43927
+Read port: 43927
+1704930038269	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.error: ({})
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+console.error: (new TypeError("this._searchProviderInfo is null", "resource:///modules/SearchSERPTelemetry.sys.mjs", 743))
+JavaScript warning: http://localhost:3000/public/build/215.c1c0320c66de376bf22b.js, line 27: unreachable code after return statement
+JavaScript warning: http://localhost:3000/public/build/215.c1c0320c66de376bf22b.js, line 27: unreachable code after return statement
+console.error: (new TypeError("linkMap is undefined", "resource://gre/modules/NewTabUtils.sys.mjs", 2001))
+Fontconfig warning: "/etc/fonts/conf.avail/53-monospace-lcd-filter.conf", line 10: Having multiple values in <test> isn't supported and may not work as expected
+1704930059684	Marionette	INFO	Stopped listening on port 43927
+JavaScript warning: http://localhost:3000/public/build/8224.b92602c725f297431921.js, line 7161: Script terminated by timeout at:
+6911/r/this.measure@http://localhost:3000/public/build/8224.b92602c725f297431921.js:7161:7856
+
